@@ -3,7 +3,6 @@
 " -----------------------------------------------------------------------------
 set nocompatible        " be iMproved  
 filetype off            " required
-
 " ÉèÖÃ°üÀ¨vundleºÍ³õÊ¼»¯Ïà¹ØµÄruntime path
 " ÅĞ¶Ï²Ù×÷ÏµÍ³ÀàĞÍ
 if(has('win32') || has('win64'))
@@ -16,59 +15,45 @@ endif
 call vundle#begin(path)
 " ÁíÒ»ÖÖÑ¡Ôñ, Ö¸¶¨Ò»¸övundle°²×°²å¼şµÄÂ·¾¶
 "call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle
 "Bundle 'gmarik/vundle'
-Plugin 'VundleVim/Vundle'
-
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'plytophogy/vim-virtualenv'
+Plugin 'skywind3000/asyncrun.vim'
 " My Bundles here:
-
 " original repos on github
 " githubÉÏµÄÓÃ»§Ğ´µÄ²å¼ş£¬Ê¹ÓÃÕâÖÖÓÃ»§Ãû+repoÃû³ÆµÄ·½Ê½
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'tpope/vim-rails.git'
-
 "1.PowerLine²å¼ş ×´Ì¬À¸ÔöÇ¿Õ¹Ê¾
 Bundle 'Lokaltog/vim-powerline'
     "vimÓĞÒ»¸ö×´Ì¬À¸ ¼ÓÉÏpowlineÔòÓĞÁ½¸ö×´Ì¬À¸
     set laststatus=2
     set t_Co=256
     let g:Powline_symbols='fancy'
-"Bundle 'Valloric/YouCompleteMe'
-
 Bundle 'majutsushi/tagbar'
-    "nmap <Leader>tb :TagbarToggle<CR>      "¿ì½İ¼üÉèÖÃ
     let g:tagbar_ctags_bin='ctags'          "ctags³ÌĞòµÄÂ·¾¶
     let g:tagbar_width=30               "´°¿Ú¿í¶ÈµÄÉèÖÃ
-    ""map <F2> :Tagbar<CR>
     nmap tl :Tagbar<CR>
-
 Bundle 'fholgado/minibufexpl.vim'
     let g:miniBufExplMapWindowNavVim = 1   
     let g:miniBufExplMapWindowNavArrows = 1   
     let g:miniBufExplMapCTabSwitchBufs = 1   
     let g:miniBufExplModSelTarget = 1  
     let g:miniBufExplMoreThanOne=0
-
-    map <F11> :MBEbp<CR>
-    map <F12> :MBEbn<CR>
-
 Bundle 'scrooloose/nerdtree'
-map <F2> :NERDTreeMirror<CR>
-map <F2> :NERDTreeToggle<CR>
-
+map wm :NERDTreeMirror<CR>
+map wm :NERDTreeToggle<CR>
 " vim-scripts repos
 " vimscriptsµÄrepoÊ¹ÓÃÏÂÃæµÄ¸ñÊ½£¬Ö±½ÓÊÇ²å¼şÃû³Æ
-Bundle 'L9'
-
+""Bundle 'L9'
 "Bundle 'SuperTab'
 "Bundle 'vimwiki'
 "Bundle 'winmanager'
 "Bundle 'bufexplorer.zip'
-
-Bundle 'The-NERD-Commenter'
+""Bundle 'The-NERD-Commenter'
 "Bundle 'matrix.vim--Yang'
 "Bundle 'FencView.vim'
 "Bundle 'Conque-Shell'
@@ -82,60 +67,46 @@ Bundle 'Mark'
     let g:mwAutoSaveMarks = 1
     let g:mwAutoLoadMarks = 1
     nmap <F3> \*
-
 "Bundle 'Markdown'
 "Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'a.vim'
-    nnoremap <silent> <F12> :A<CR> 
+Bundle 'Raimondi/delimitMate'
 "Bundle 'snipMate'
-
 " non github reposo
 " ·ÇgithubµÄ²å¼ş£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃÆägitµØÖ·
 " Bundle 'git://git.wincent.com/command-t.git'
 " ...
-
-
-
 "git interface
 Plugin 'tpope/vim-fugitive'
 "filesystem
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim' 
-
+""Plugin 'jistr/vim-nerdtree-tabs'
+""Plugin 'kien/ctrlp.vim' 
 "html
 "  isnowfy only compatible with python not python3
-Plugin 'isnowfy/python-vim-instant-markdown'
+""Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
-
 "auto-completion stuff
-"Plugin 'klen/python-mode'
+""Plugin 'klen/python-mode'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/rope-vim'
-Plugin 'davidhalter/jedi-vim'
+""Plugin 'klen/rope-vim'
+""Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 ""code folding
 Plugin 'tmhedberg/SimpylFold'
-
 "Colors!!!
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-
-
-
+""Plugin 'altercation/vim-colors-solarized'
+""Plugin 'jnurmine/Zenburn'
 " ÄãµÄËùÓĞ²å¼şĞèÒªÔÚÏÂÃæÕâĞĞÖ®Ç°
 call vundle#end()            " ±ØĞë
 filetype plugin indent on    " ±ØĞë ¼ÓÔØvim×Ô´øºÍ²å¼şÏàÓ¦µÄÓï·¨ºÍÎÄ¼şÀàĞÍÏà¹Ø½Å±¾
-
 " ºöÊÓ²å¼ş¸Ä±äËõ½ø,¿ÉÒÔÊ¹ÓÃÒÔÏÂÌæ´ú:
 "filetype plugin on
-
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
@@ -147,33 +118,23 @@ filetype plugin indent on    " ±ØĞë ¼ÓÔØvim×Ô´øºÍ²å¼şÏàÓ¦µÄÓï·¨ºÍÎÄ¼şÀàĞÍÏà¹Ø½Å±
 " ĞèÒªÅäÖÃÕâ¸ö²å¼ş£¬Ò²ÊÇÔÚvimrcÖĞÉèÖÃ¼´¿É
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
-
-
-
 " ÒÔÏÂ·¶ÀıÓÃÀ´Ö§³Ö²»Í¬¸ñÊ½µÄ²å¼ş°²×°.
 " Çë½«°²×°²åµÄÃüÁî·ÅÔÚvundle#beginºÍvundle#endÖ®¼ä.
-
 " GithubÉÏµÄ²å¼ş
 " ¸ñÊ½Îª Plugin 'ÓÃ»§Ãû/²å¼ş²Ö¿âÃû'
 "Plugin 'tpope/vim-fugitive'
-
 " À´×Ô http://vim-scripts.org/vim/scripts.html µÄ²å¼ş
 " Plugin '²å¼şÃû³Æ' Êµ¼ÊÉÏÊÇ Plugin 'vim-scripts/²å¼ş²Ö¿âÃû' Ö»ÊÇ´Ë´¦µÄÓÃ»§Ãû¿ÉÒÔÊ¡ÂÔ
 "Plugin 'L9'
-
 " ÓÉGitÖ§³Öµ«²»ÔÙgithubÉÏµÄ²å¼ş²Ö¿â Plugin 'git clone ºóÃæµÄµØÖ·'
 "Plugin 'git://git.wincent.com/command-t.git'
-
 " ±¾µØµÄGit²Ö¿â(ÀıÈç×Ô¼ºµÄ²å¼ş) Plugin 'file:///+±¾µØ²å¼ş²Ö¿â¾ø¶ÔÂ·¾¶'
 "Plugin 'file:///home/gmarik/path/to/plugin'
-
 " ²å¼şÔÚ²Ö¿âµÄ×ÓÄ¿Â¼ÖĞ.
 " ÕıÈ·Ö¸¶¨Â·¾¶ÓÃÒÔÉèÖÃruntimepath. ÒÔÏÂ·¶Àı²å¼şÔÚsparkup/vimÄ¿Â¼ÏÂ
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
 " ±ÜÃâ²å¼şÃû³åÍ»,ÀıÈçL9ÒÑ´æÔÚ,Ôò¿ÉÒÔÖ¸¶¨
 "Plugin 'user/L9', {'name': 'newL9'}
-
 "
 " ¼òÒª°ïÖúÎÄµµ
 " :PluginList       - ÁĞ³öËùÓĞÒÑÅäÖÃµÄ²å¼ş
@@ -186,13 +147,6 @@ filetype plugin indent on    " ±ØĞë ¼ÓÔØvim×Ô´øºÍ²å¼şÏàÓ¦µÄÓï·¨ºÍÎÄ¼şÀàĞÍÏà¹Ø½Å±
 "
 "
 "
-
-
-
-
-
-
-
 set autochdir
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim 
@@ -205,19 +159,6 @@ set encoding=utf-8
 set fencs=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,euc-jp,
 behave mswin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÃüÁîĞĞÄ£Ê½ÏÂÊäÈëwm´ò¿ªTlistºÍWM
-set showcmd
-set noic
-let OmniCpp_DefaultNamespace= ["std"]
-let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
-let OmniCpp_NamespaceSearch = 2   " 0 ,  1 or 2
-let OmniCpp_DisplayMode = 1
-let OmniCpp_ShowScopeInAbbr = 0
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_MayCompleteScope = 1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
@@ -245,9 +186,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Ò»°ãÉè¶¨
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F4> :e .<CR>
-map <F3> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "gvimµÄ×ÖÌåÉè¶¨
 set guifont=Consolas:h13
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -330,9 +268,9 @@ set novisualbell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ÎÒµÄ×´Ì¬ĞĞÏÔÊ¾µÄÄÚÈİ£¨°üÀ¨ÎÄ¼şÀàĞÍºÍ½âÂë£©
-set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%Y-%m-%d\ \%H:%M\")}\ %{''.(&fenc!=''?&fenc:&enc).''}\ %{(&bomb?\",BOM\":\"\")}
+""set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%Y-%m-%d\ \%H:%M\")}\ %{''.(&fenc!=''?&fenc:&enc).''}\ %{(&bomb?\",BOM\":\"\")}
 "×ÜÊÇÏÔÊ¾×´Ì¬ĞĞ
-set laststatus=2
+""set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ÎÄ±¾¸ñÊ½ºÍÅÅ°æ
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -353,46 +291,7 @@ set expandtab
 "²»Òª»»ĞĞ
 set nowrap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"CTagsµÄÉè¶¨
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃTaglist
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÕâÏî±ØĞëÉè¶¨£¬·ñÔò³ö´í,ÅäÖÃtaglistµÄctagsÂ·¾¶
-let Tlist_Ctags_Cmd = 'C:\ctags\ctags.exe'
-"²»Í¬Ê±ÏÔÊ¾¶à¸öÎÄ¼şµÄ tag £¬Ö»ÏÔÊ¾µ±Ç°ÎÄ¼şµÄ
-let Tlist_Show_One_File=1
-"Èç¹û taglist ´°¿ÚÊÇ×îºóÒ»¸ö´°¿Ú£¬ÔòÍË³ö vim
-let Tlist_Exit_OnlyWindow=1
-"ÈÃµ±Ç°²»±»±à¼­µÄÎÄ¼şµÄ·½·¨ÁĞ±í×Ô¶¯ÕÛµşÆğÀ´ 
-let Tlist_File_Fold_Auto_Close=1
-"°Ñtaglist´°¿Ú·ÅÔÚÆÁÄ»µÄÓÒ²à£¬È±Ê¡ÔÚ×ó²à 
-let Tlist_Use_Right_Window=1 
-"ÏÔÊ¾taglist²Ëµ¥
-let Tlist_Show_Menu=1
-"Æô¶¯vim×Ô¶¯´ò¿ªtaglist
-"let Tlist_Auto_Open=1
-"""""""""""""""""""""""""""""""
-"" winManager setting
-"""""""""""""""""""""""""""""""
-"ÉèÖÃ½çÃæ·Ö¸î
-"let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
-let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"
-""let g:winManagerWindowLayout = "TagList|NERDTreeToggle"
-"ÉèÖÃwinmanagerµÄ¿í¶È£¬Ä¬ÈÏÎª25
-let g:winManagerWidth = 30
-"¶¨Òå´ò¿ª¹Ø±Õwinmanager°´¼ü
-nmap wm :WMToggle<cr>
-"
-"°´ÕÕÃû³ÆÅÅĞò
-let Tlist_Sort_Type = "name"
-"Ñ¹Ëõ·½Ê½
-let Tlist_Compart_Format = 1
-"Èç¹ûÖ»ÓĞÒ»¸öbuffer£¬kill´°¿ÚÒ²killµôbuffer
-let Tlist_Exist_OnlyWindow = 1
-"²»Òª¹Ø±ÕÆäËûÎÄ¼şµÄtags
-let Tlist_File_Fold_Auto_Close = 0
 "²»ÒªÏÔÊ¾ÕÛµşÊ÷
-let Tlist_Enable_Fold_Column = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -412,7 +311,7 @@ endif "has("autocmd")
 "Çë×¢Òâ£¬ÏÂÊö´úÂëÔÚwindowsÏÂÊ¹ÓÃ»á±¨´í
 "ĞèÒªÈ¥µô./ÕâÁ½¸ö×Ö·û
 "È¥¿ÕĞĞ  
-nnoremap <F2> :g/^\s*$/d<CR> 
+""nnoremap <F2> :g/^\s*$/d<CR> 
 "CµÄ±àÒëºÍÔËĞĞ
 map <F5> :call CompileRun()<CR>
 func! CompileRun()
@@ -466,8 +365,6 @@ endfun
 autocmd BufNewFile *.c,*.sh,*.cpp,*.java,*.py exec ":call SetTitle()" 
 "ĞÂ½¨ÎÄ¼şºó£¬×Ô¶¯¶¨Î»µ½ÎÄ¼şÄ©Î² 
 autocmd BufNewFile * normal G
-"ÉèÖÃJava´úÂëµÄ×Ô¶¯²¹È«
-au FileType java setlocal omnifunc=javacomplete#Complete
 "¶¨Òåº¯ÊıSetTitle£¬×Ô¶¯²åÈëÎÄ¼şÍ· 
 func SetTitle()
 ""call setline(1, "//********************************************************************") 
@@ -503,98 +400,19 @@ call append(4, " ")
 call append(2, " ") 
 elseif &filetype == 'python' 
 call append(0,"# -*- coding: utf-8 -*-")
-call append(1,"#!/usr/local/bin/python")
-call append(2, "#Time: ".strftime("%c")) 
-call append(3, "#Description: ") 
-call append(4, "#File Name: ".expand("%")) 
-call append(5," ")
+call append(1,"# !/usr/local/bin/python")
+call append(2, "# Time: ".strftime("%c")) 
+call append(3, "# Description:") 
+call append(4, "# File Name: ".expand("%")) 
+call append(5,"")
 endif 
 endfunc
 "ÓÃ¿Õ¸ñ¼üÀ´¿ª¹ØÕÛµş
 set foldenable
 set foldmethod=manual
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
-"minibufexpl²å¼şµÄÒ»°ãÉèÖÃ
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-"Tree explorerµÄÉèÖÃ
-let g:treeExplVertical=1
-let g:treeExplWinSize=30
 "×Ô¶¯²¹È«¹¦ÄÜ
-set completeopt=longest,menu 
 set tags+=tags
-set tags+=C:\ctags\tags
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:inoremap <S-ENTER> <c-r>=SkipPair()<CR>
-:inoremap <S-SPACE> <ESC>la
-:inoremap <C-ENTER> <ESC>A;<CR>
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { <c-r>=ClsoeBrace()<CR>
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap ;; <ESC>A;<CR>
-:inoremap " ""<ESC>i
-:inoremap ' ''<ESC>i
-function ClosePair(char)
-   if getline('.')[col('.') - 1] == a:char
-      return "\<Right>"
-   else
-      return a:char
-   endif
-endf
-function Semicolon()
-   "echo getline('.')[col('.')]
-   if getline('.')[col('.')] == ')'
-      return "<ESC>A;"
-   elseif getline('.')[col('.')] == '}'
-      return "\<ESC>A;"
-   elseif getline('.')[col('.')] == ']'
-      return "\<ESC>A;"
-   else
-      return ";"
-   endif
-endf
-function SkipPair()
-   if getline('.')[col('.') - 1] == ')'
-      return "\<ESC>o"
-   else
-      normal j
-      let curline = line('.')
-      let nxtline = curline
-      while curline == nxtline
-         if getline('.')[col('.') - 1] == '}'
-            normal j
-            let nxtline = nxtline + 1
-            let curline = line('.')
-            continue
-         else
-            return "\<ESC>i"
-         endif
-      endwhile
-      return "\<ESC>o"
-   endif
-endf
-function ClsoeBrace()
-   if getline('.')[col('.') - 2] == '='
-      return "{}\<ESC>i"
-   elseif getline('.')[col('.') - 3] == '='
-      return "{}\<ESC>i"
-   elseif getline('.')[col('.') - 1] == '{'
-      return "{}\<ESC>i"
-   elseif getline('.')[col('.') - 2] == '{'
-      return "{}\<ESC>i"
-   elseif getline('.')[col('.') - 2] == ','
-      return "{}\<ESC>i"
-   elseif getline('.')[col('.') - 3] == ','
-      return "{}\<ESC>i"
-   else
-      return "{\<ENTER>}\<ESC>O"
-   endif
-endf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=m
 set guioptions-=T
@@ -617,12 +435,11 @@ endif
 set smarttab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "×´Ì¬ĞĞÑÕÉ«
-highlight StatusLine guifg=SlateBlue guibg=Yellow
-highlight StatusLineNC guifg=Gray guibg=White
+""highlight StatusLine guifg=SlateBlue guibg=Yellow
+""highlight StatusLineNC guifg=Gray guibg=White
 "ÔÊĞíbackspaceºÍ¹â±ê¼ü¿çÔ½ĞĞ±ß½ç
 set whichwrap+=<,>,h,l
-"""""""""""""""""""""""""python ²¹È«"""""""""""""""""""""""""
-let g:pydiction_location = 'C:\Program Files (x86)\Vim\vim80\tools\pydiction\complete-dict'
+"±£ÁôÕıÔò±í´ïÊ½Æ¥ÅäµÄĞĞ"
 function! KeepLines(pattern)
     let pattern = a:pattern
     let hits = []
@@ -632,22 +449,31 @@ function! KeepLines(pattern)
     put! = str
 endfunction
 command! -nargs=1 KeepLines call KeepLines(<f-args>)
-"PYTHONÓï·¨¼ì²é"
-if has("gui_running") 
-     highlight SpellBad term=underline gui=undercurl guisp=Orange 
-endif
-
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-
-
+""ÒÔ´ïµ½µ±Ê£ÓàµÄ´°¿Ú¶¼²»ÊÇÎÄ¼ş±à¼­´°¿ÚÊ±£¬×Ô¶¯ÍË³övim
+autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 au BufNewFile,BufRead *.py,*.pyw setf python
 set ofu=syntaxcomplete#Complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType python runtime! autoload/pythoncomplete.vim
+
+
+if has('multi_byte_ime')  
+ "Î´¿ªÆôIMEÊ±¹â±ê±³¾°É«  
+ hi Cursor guifg=bg guibg=Orange gui=NONE  
+ "¿ªÆôIMEÊ±¹â±ê±³¾°É«  
+ hi CursorIM guifg=NONE guibg=Skyblue gui=NONE  
+ " ¹Ø±ÕVimµÄ×Ô¶¯ÇĞ»»IMEÊäÈë·¨(²åÈëÄ£Ê½ºÍ¼ìË÷Ä£Ê½)  
+ set iminsert=0 imsearch=0  
+ " ²åÈëÄ£Ê½ÊäÈë·¨×´Ì¬Î´±»¼ÇÂ¼Ê±£¬Ä¬ÈÏ¹Ø±ÕIME  
+ "inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>  
+endif  
+
+
+let $PYTHONUNBUFFERED=1
 source $VIMRUNTIME/delmenu.vim 
 source $VIMRUNTIME/menu.vim 
