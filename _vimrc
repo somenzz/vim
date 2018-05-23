@@ -1,3 +1,198 @@
+" -----------------------------------------------------------------------------
+"  < Vundle 插件配置 >
+" -----------------------------------------------------------------------------
+set nocompatible        " be iMproved  
+filetype off            " required
+
+" 设置包括vundle和初始化相关的runtime path
+" 判断操作系统类型
+if(has('win32') || has('win64'))
+    set rtp+=$VIM\vimfiles\bundle\Vundle.vim
+    let path='$VIM\vimfiles\bundle'
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    let path='~/.vim/bundle'
+endif
+call vundle#begin(path)
+" 另一种选择, 指定一个vundle安装插件的路径
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle
+"Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle'
+
+" My Bundles here:
+
+" original repos on github
+" github上的用户写的插件，使用这种用户名+repo名称的方式
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'tpope/vim-rails.git'
+
+"1.PowerLine插件 状态栏增强展示
+Bundle 'Lokaltog/vim-powerline'
+    "vim有一个状态栏 加上powline则有两个状态栏
+    set laststatus=2
+    set t_Co=256
+    let g:Powline_symbols='fancy'
+"Bundle 'Valloric/YouCompleteMe'
+
+Bundle 'majutsushi/tagbar'
+    "nmap <Leader>tb :TagbarToggle<CR>      "快捷键设置
+    let g:tagbar_ctags_bin='ctags'          "ctags程序的路径
+    let g:tagbar_width=30               "窗口宽度的设置
+    ""map <F2> :Tagbar<CR>
+    nmap tl :Tagbar<CR>
+
+Bundle 'fholgado/minibufexpl.vim'
+    let g:miniBufExplMapWindowNavVim = 1   
+    let g:miniBufExplMapWindowNavArrows = 1   
+    let g:miniBufExplMapCTabSwitchBufs = 1   
+    let g:miniBufExplModSelTarget = 1  
+    let g:miniBufExplMoreThanOne=0
+
+    map <F11> :MBEbp<CR>
+    map <F12> :MBEbn<CR>
+
+Bundle 'scrooloose/nerdtree'
+map <F2> :NERDTreeMirror<CR>
+map <F2> :NERDTreeToggle<CR>
+
+" vim-scripts repos
+" vimscripts的repo使用下面的格式，直接是插件名称
+Bundle 'L9'
+
+"Bundle 'SuperTab'
+"Bundle 'vimwiki'
+"Bundle 'winmanager'
+"Bundle 'bufexplorer.zip'
+
+Bundle 'The-NERD-Commenter'
+"Bundle 'matrix.vim--Yang'
+"Bundle 'FencView.vim'
+"Bundle 'Conque-Shell'
+"Bundle 'Vimpress'
+Bundle 'Mark'
+    " -----------------------------------------------------------------------------
+    "  < Mark--Karkat（也就是 Mark 插件配置 >
+    " 给不同的单词高亮，表明不同的变量时很有用，详细帮助见 :h mark.txt
+    " -----------------------------------------------------------------------------
+    set viminfo+=!                     " 保存全局变量
+    let g:mwAutoSaveMarks = 1
+    let g:mwAutoLoadMarks = 1
+    nmap <F3> \*
+
+"Bundle 'Markdown'
+"Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+Bundle 'a.vim'
+    nnoremap <silent> <F12> :A<CR> 
+"Bundle 'snipMate'
+
+" non github reposo
+" 非github的插件，可以直接使用其git地址
+" Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+
+
+"git interface
+Plugin 'tpope/vim-fugitive'
+"filesystem
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim' 
+
+"html
+"  isnowfy only compatible with python not python3
+Plugin 'isnowfy/python-vim-instant-markdown'
+Plugin 'jtratner/vim-flavored-markdown'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'nelstrom/vim-markdown-preview'
+"python sytax checker
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-scripts/Pydiction'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+
+"auto-completion stuff
+"Plugin 'klen/python-mode'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'klen/rope-vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+""code folding
+Plugin 'tmhedberg/SimpylFold'
+
+"Colors!!!
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
+
+
+
+" 你的所有插件需要在下面这行之前
+call vundle#end()            " 必须
+filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+
+" 忽视插件改变缩进,可以使用以下替代:
+"filetype plugin on
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" vundle主要就是上面这个四个命令，例如BundleInstall是全部重新安装，BundleInstall!则是更新
+" 一般安装插件的流程为，先BundleSearch一个插件，然后在列表中选中，按i安装
+" 安装完之后，在vimrc中，添加Bundle 'XXX'，使得bundle能够加载，这个插件，同时如果
+" 需要配置这个插件，也是在vimrc中设置即可
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+
+
+" 以下范例用来支持不同格式的插件安装.
+" 请将安装插的命令放在vundle#begin和vundle#end之间.
+
+" Github上的插件
+" 格式为 Plugin '用户名/插件仓库名'
+"Plugin 'tpope/vim-fugitive'
+
+" 来自 http://vim-scripts.org/vim/scripts.html 的插件
+" Plugin '插件名称' 实际上是 Plugin 'vim-scripts/插件仓库名' 只是此处的用户名可以省略
+"Plugin 'L9'
+
+" 由Git支持但不再github上的插件仓库 Plugin 'git clone 后面的地址'
+"Plugin 'git://git.wincent.com/command-t.git'
+
+" 本地的Git仓库(例如自己的插件) Plugin 'file:///+本地插件仓库绝对路径'
+"Plugin 'file:///home/gmarik/path/to/plugin'
+
+" 插件在仓库的子目录中.
+" 正确指定路径用以设置runtimepath. 以下范例插件在sparkup/vim目录下
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" 避免插件名冲突,例如L9已存在,则可以指定
+"Plugin 'user/L9', {'name': 'newL9'}
+
+"
+" 简要帮助文档
+" :PluginList       - 列出所有已配置的插件
+" :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
+" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
+" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
+"
+" 查阅 :h vundle 获取更多细节和wiki以及FAQ
+" 将你自己对非插件片段放在这行之后
+"
+"
+"
+
+
+
+
+
+
+
 set autochdir
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim 
@@ -441,6 +636,14 @@ command! -nargs=1 KeepLines call KeepLines(<f-args>)
 if has("gui_running") 
      highlight SpellBad term=underline gui=undercurl guisp=Orange 
 endif
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
 
 au BufNewFile,BufRead *.py,*.pyw setf python
 set ofu=syntaxcomplete#Complete
