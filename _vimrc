@@ -85,8 +85,9 @@ Plugin 'tpope/vim-fugitive'
 "  isnowfy only compatible with python not python3
 ""Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+"Plugin 'suan/vim-instant-markdown'
+"Ruby support for vim.
+"Plugin 'nelstrom/vim-markdown-preview'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/indentpython.vim'
